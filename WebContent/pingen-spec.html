@@ -1,0 +1,68 @@
+<h2>Generate Pin / Specific</h2>
+<div>
+<div id="pinGenSpecJobId"></div><br/>
+        <form id="formPinGenSpec" class="ink-form">
+<div id="formPinGenSpecPins" class="control-group">
+	<label for="pin">Specific Pin:</label><i id="pinGenSpecPlus" class="fa fa-plus-square" style="font-size:1.3em;color:green;margin-top:-.3em;margin-left:6.5em;cursor:pointer;cursor:hand;" onclick="pinGenSpecButtonPlusClick(5)"></i>
+	<div class="control"><input id="pinCount" name="pinCount" style="width:15em;" type="hidden" value="5"></div>
+<div id="pinInput">
+
+<div class="control-group column-group"><div class="control">
+<input id="pin1" name="pin1" style="width:15em;" type="text" placeholder="Specific Pin" maxlength="15" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>
+</div>             
+<div id="pinSpin1" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div>
+<div class="control-group column-group"><div class="control">
+<input id="pin2" name="pin2" style="width:15em;" type="text" placeholder="Specific Pin" maxlength="15" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>
+</div>                
+<div id="pinSpin2" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div>
+<div class="control-group column-group"><div class="control">
+<input id="pin3" name="pin3" style="width:15em;" type="text" placeholder="Specific Pin" maxlength="15" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>
+</div>                
+<div id="pinSpin3" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div>
+<div class="control-group column-group"><div class="control">
+<input id="pin4" name="pin4" style="width:15em;" type="text" placeholder="Specific Pin" maxlength="15" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>
+</div>                
+<div id="pinSpin4" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div>
+<div class="control-group column-group"><div class="control">
+<input id="pin5" name="pin5" style="width:15em;" type="text" placeholder="Specific Pin" maxlength="15" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'>
+</div>                
+<div id="pinSpin5" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div>
+        
+</div>
+<i id="pinGenSpecPlus" class="fa fa-plus-square" style="font-size:1.3em;color:green;margin-top:-.3em;margin-left:10.8em;cursor:pointer;cursor:hand;" onclick="pinGenSpecButtonPlusClick(5)"></i>
+</div>
+
+	<div id="pinGenSpecButton">
+        <input id="buttonAdd" type="button" value="Add Pins" class="ink-button green" onclick="pinGenSpecButtonAddClick()">
+		<input id="buttonCancel" type="button" value="Cancel" class="ink-button red" onclick="goHome()">
+	</div>
+<br/><br/>
+		</form>
+		
+		
+		
+		
+		
+</div>
+<div class="ink-shade fade">
+    <div id="formPinGenSpecConfirm" class="ink-modal fade" data-trigger="#formPinGenBatchConfirmTrigger" data-width="500px" data-height="400px" role="dialog" aria-hidden="true" aria-labelled-by="modal-title">
+        <div class="modal-header">
+            <!-- <button class="modal-close ink-dismiss"></button>  -->
+            <h2 id="modal-title">Generate PIN / Specific</h2>
+        </div>
+        <div class="modal-body" id="modalContent">
+            <h3>Please confirm</h3>
+            <br/>
+            Do you really want to add pins?
+        </div>
+        <div class="modal-footer">
+        	<div class="push-left"><button class="ink-button ink-dismiss green" onclick="pinGenSpecButtonConfirmClick()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
+            <div class="push-right"><button class="ink-button ink-dismiss red">&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</button></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<h2>PIN History</h2>
+
+<form id="formPinHistory" class="ink-form">
+<div class="control-group column-group">
+<div class="control append-button">
+<label for="pinSearch">Search:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<span><input id="pinSearch" name="pinSearch" style="width:20em;" type="text" placeholder="PIN or Serial" maxlength="15" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)'></span>
+<button class="ink-button green" onclick="pinHistoryButtonSearchClick()">Search</button>
+</div>
+<div id="pinpinSearchSpin" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div>
+</form>
+
+<div id="pinList"></div>
+<div id="pinHistory">
+<table class="ink-table bordered alternating hover">
+<thead>
+<tr><th class="align-left">PIN</th><th class="align-left">Serial</th><th class="align-center">Status</th><th class="align-left">Last updated</th><th class="align-center" style="width:1em;">Action</th></tr>
+</thead>
+  <tbody>
+    <tr>
+      <td>123456789012345</td>
+      <td>2600000001</td><td class="align-center">Available</td><td>23/02/2016 12:34:33</td>
+      <td class="align-center"><button class="ink-button green" onclick="pinHistoryButtonSearchClick()">History</button></td>
+    </tr>
+    <tr>
+      <td>123456789012345</td>
+      <td>2600000001</td><td class="align-center">Available</td><td>23/02/2016 12:34:33</td>
+      <td class="align-center"><button class="ink-button green" onclick="pinHistoryButtonSearchClick()">History</button></td>
+    </tr>
+    <tr>
+      <td>123456789012345</td>
+      <td>2600000001</td><td class="align-center">Distributed</td><td>23/02/2016 12:34:33</td>
+      <td class="align-center"><button class="ink-button green" onclick="pinHistoryButtonSearchClick()">History</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="ink-shade fade">
+    <div id="formPinGenSpecConfirm" class="ink-modal fade" data-trigger="#formPinGenBatchConfirmTrigger" data-width="500px" data-height="400px" role="dialog" aria-hidden="true" aria-labelled-by="modal-title">
+        <div class="modal-header">
+            <!-- <button class="modal-close ink-dismiss"></button>  -->
+            <h2 id="modal-title">Generate PIN / Specific</h2>
+        </div>
+        <div class="modal-body" id="modalContent">
+            <h3>Please confirm</h3>
+            <br/>
+            Do you really want to add pins?
+        </div>
+        <div class="modal-footer">
+        	<div class="push-left"><button class="ink-button ink-dismiss green" onclick="pinGenSpecButtonConfirmClick()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
+            <div class="push-right"><button class="ink-button ink-dismiss red">&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</button></div>
+        </div>
+    </div>
+</div>

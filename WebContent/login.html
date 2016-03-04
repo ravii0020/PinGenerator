@@ -1,0 +1,44 @@
+<div class="panel-main push-center" style="margin-top:100px;width:500px;">
+<div class="panel">
+<h2>Pin Generator / Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card"></i></h2>
+<div id="loginCarousel" class="ink-carousel">
+    <ul class="stage column-group">
+        <li class="slide all-100">
+<form id="formLogin" class="ink-form">
+<div class="control-group required">
+	<label for="userName">Username:</label>
+	<div class="control prepend-symbol">
+	<span>
+	<input id="userName" name="userName" type="text" class="ink-fv-required" placeholder="Username" value="admin">
+	<i class="fa fa-male"></i>
+	</span>
+	</div>
+</div>
+<div class="control-group required">
+	<label for="password">Password:</label>
+	<div class="control prepend-symbol">
+	<span>
+	    <input id="password" name="password" class="ink-fv-required" type="password" placeholder="Password" value="admin11">
+	    <i class="fa fa-key"></i>
+	</span>
+	</div>
+</div>
+
+<br/>
+<input id="buttonLogin" type="button" value="&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;" class="ink-button green push-right" onclick="loginButtonLoginClick();">
+</form>
+        </li>
+
+        <li class="slide all-100">
+        <br/><br/>
+        <div class="ink-alert basic" role="alert"><br/>
+    	<p><b ><i class="fa fa-key"></i>&nbsp;&nbsp;&nbsp;</b> Invalid username or password...</p><br/>
+		</div>
+		<br/><br/><br/>
+		<div id="buttonTryAgain" class="push-right"><button class="ink-button red" onclick="loginButtonTryAgainClick()">&nbsp;&nbsp;&nbsp;Try Again&nbsp;&nbsp;&nbsp;</button></div>
+		<br/><br/><br/>
+        </li>
+    </ul>
+</div>
+</div>
+</div>

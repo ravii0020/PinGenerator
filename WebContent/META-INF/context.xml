@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+<Resource name="jdbc/PinGen" auth="Container" type="javax.sql.DataSource"
+    driverClassName="org.apache.derby.jdbc.ClientDriver" 
+    url="jdbc:derby://localhost:1527/db" maxActive="20" 
+    maxIdle="10" maxWait="-1" />
+</Context>
+
+<!-- driverClassName="org.apache.derby.jdbc.EmbeddedDriver" url="jdbc:derby:/home/pingen/db;create=true" -->

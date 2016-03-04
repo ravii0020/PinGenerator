@@ -1,0 +1,36 @@
+<h2>Load PIN</h2>
+<div class="column-group">
+
+<form id="formLoadPin" class="ink-form" style="width:50em;">
+<div class="control-group column-group">
+<label for="fileIN">File PinGen:&nbsp;&nbsp;&nbsp;</label>
+<div class="control append-button">
+<span><input id="fileIN" name="fileIN" style="width:15em;" type="text"></span>
+<input id="buttonBrowseFileIN" type="button" value="Browse" class="ink-button green" onclick="loadPinButtonBrowseFileINClick();">
+</div>
+<div id="pinpinSearchSpin" class="align-right" style="font-size:1.6em;margin-top:-.3em;margin-left:.8em"></div>
+</div><input id="fileINHidden" type="file" style="visibility:hidden" onchange="loadPinInputBrowseFileINChange()"/>
+<br/>
+	<input id="buttonSubmit" type="button" value="Submit" class="ink-button green" onclick="loadPinButtonSubmitClick();">
+	<input id="buttonCancel" type="button" value="Cancel" class="ink-button red" onclick="goHome()">
+</form>
+
+</div>
+
+<div class="ink-shade fade">
+    <div id="formPinGenSpecConfirm" class="ink-modal fade" data-trigger="#formPinGenBatchConfirmTrigger" data-width="500px" data-height="400px" role="dialog" aria-hidden="true" aria-labelled-by="modal-title">
+        <div class="modal-header">
+            <!-- <button class="modal-close ink-dismiss"></button>  -->
+            <h2 id="modal-title">Generate PIN / Specific</h2>
+        </div>
+        <div class="modal-body" id="modalContent">
+            <h3>Please confirm</h3>
+            <br/>
+            Do you really want to add pins?
+        </div>
+        <div class="modal-footer">
+        	<div class="push-left"><button class="ink-button ink-dismiss green" onclick="pinGenSpecButtonConfirmClick()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
+            <div class="push-right"><button class="ink-button ink-dismiss red">&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</button></div>
+        </div>
+    </div>
+</div>

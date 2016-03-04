@@ -1,0 +1,58 @@
+<h2>Map Serial</h2>
+<div id="serialMapCarousel" class="ink-carousel">
+    <ul class="stage column-group">
+        <li class="slide all-100">
+        <div id="serialMapAlert"></div>
+<form id="formSerialMap" class="ink-form">
+<div class="control-group required">
+	<label for="serialPattern">Pattern:</label>
+	<div class="control">
+
+	<select id="serialPattern" name="serialPattern" style="width:15em;"></select>
+	<!--  <input id="pinDigit" name="pinDigit" type="number" style="width:15em;" min="1" max="15" placeholder="pinDigit" value="12">  -->
+	</div>
+</div>
+<div class="control-group required">
+	<label for="pinAmount">Pin Amount:</label>
+	<div class="control">
+	    <input id="pinAmount" name="pinAmount" class="ink-fv-required ink-fv-number" style="width:15em;" type="text" placeholder="Pin Amount" maxlength="7" onkeypress='return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 188))' >
+	</div>
+</div>
+	<input id="buttonMap" type="button" value="&nbsp;&nbsp;&nbsp;Map&nbsp;&nbsp;&nbsp;" class="ink-button green" onclick="serialMapButtonMapClick();">
+	<input id="buttonCancel" type="button" value="Cancel" class="ink-button red" onclick="goHome()">
+</form>
+        </li>
+
+        <li class="slide all-100">
+        	<div id="serialMapJobId"></div><br/>
+			<div id="serialMapAction">Generating..</div> 
+			<br/><br/>
+			<div id="serialMapProgressBar" class="ink-progress-bar" data-start-value="0">
+    			<span id="serialMapProgressBarCaption" class="caption"><i class="fa fa-cog fa-spin"></i>&nbsp;&nbsp;Generating...</span><div class="bar green"></div>
+			</div>
+			<br/>You can close this page to continue your work<br/>
+			and find your job progress on <a onclick="menuJobList();">Job List</a> later
+			<br/><br/>
+			<div class="push-right"><button class="ink-button" onclick="goHome()">&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button></div><br/>
+			&nbsp;<br/>
+        </li>
+    </ul>
+</div>
+<div class="ink-shade fade">
+    <div id="formSerialMapConfirm" class="ink-modal fade" data-trigger="#formSerialMapConfirmTrigger" data-width="500px" data-height="400px" role="dialog" aria-hidden="true" aria-labelled-by="modal-title">
+        <div class="modal-header">
+            <!-- <button class="modal-close ink-dismiss"></button>  -->
+            <h2 id="modal-title">Map Serial</h2>
+        </div>
+        <div class="modal-body" id="modalContent">
+            <h3>Please confirm</h3>
+            <div id="serialMapPatternConfirm"></div>
+            <div id="serialMapPinAmountConfirm"></div><br/>
+            Do you really want to map serial?
+        </div>
+        <div class="modal-footer">
+        	<div class="push-left"><button class="ink-button ink-dismiss green" onclick="serialMapButtonConfirmClick()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
+            <div class="push-right"><button class="ink-button ink-dismiss red">&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</button></div>
+        </div>
+    </div>
+</div>

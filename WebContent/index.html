@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Pin Generator</title>
+        <meta name="description" content="Pin Generator">
+        <meta name="author" content="TV-Telecom.com,Thanwa Ananthaseth">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <link rel="shortcut icon" href="http://cdn.ink.sapo.pt/3.1.10/img/favicon.ico">
+        <link rel="apple-touch-icon" href="http://cdn.ink.sapo.pt/3.1.10/img/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="http://cdn.ink.sapo.pt/3.1.10/img/touch-icon-ipad.png"> 
+        <link rel="apple-touch-icon" sizes="120x120" href="http://cdn.ink.sapo.pt/3.1.10/img/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="http://cdn.ink.sapo.pt/3.1.10/img/touch-icon-ipad-retina.png">
+        <link rel="apple-touch-startup-image" href="http://cdn.ink.sapo.pt/3.1.10/img/splash.320x460.png" media="screen and (min-device-width: 200px) and (max-device-width: 320px) and (orientation:portrait)">
+        <link rel="apple-touch-startup-image" href="http://cdn.ink.sapo.pt/3.1.10/img/splash.768x1004.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+        <link rel="apple-touch-startup-image" href="http://cdn.ink.sapo.pt/3.1.10/img/splash.1024x748.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+
+        <link rel="stylesheet" type="text/css" href="css/ink-flex.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <!--[if lt IE 9 ]>
+            <link rel="stylesheet" href="css/ink-ie.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        <![endif]-->
+
+        <script type="text/javascript" src="js/modernizr.js"></script>
+        <script type="text/javascript">
+            Modernizr.load({
+              test: Modernizr.flexbox,
+              nope : 'css/ink-legacy.min.css'
+            });  
+        </script>
+
+        <script type="text/javascript" src="js/ink-all.min.js"></script>
+        <script type="text/javascript" src="js/autoload.js"></script>
+        <script type="text/javascript" src="js/pingen.js"></script>
+        <script type="text/javascript">
+            Ink.requireModules(['Ink.Net.Ajax_1','Ink.Dom.Loaded_1','Ink.Util.Url_1','Ink.Dom.Element_1'], function (Ajax,DomLoaded,InkUrl,InkElement) { 
+				DomLoaded.run(function(){
+            	  var p = InkUrl.parseUrl(InkUrl.getUrl());
+            	  url_home = p.scheme + "://" + p.host + "/PinGenerator";
+            	  Ink.log(window.url_home);
+                  new Ajax("LoginCheckSession", {
+                      method: 'GET',
+                      onSuccess: function(obj) {
+                          if(obj && obj.responseJSON) {
+                        	  var result = obj.responseJSON['result'];
+Ink.log("result: " + result);
+							if(result==="succeed"){
+	    						var container = Ink.i('main-screen');
+	    						Ajax.load('main.html', function (res) {
+	    						    InkElement.setHTML(container,res);setTimeout(function(){updateDashboard();},5000);
+	    						});
+	    						var name = obj.responseJSON['name'];
+	    						var pre = '&nbsp;';
+	    						if(name.length<20){var l = name.length/2;l = 10 - l;for(var i = 1;i <= l; i++){pre += '&nbsp;';}}
+	    						name = pre+name+pre;
+	    						InkElement.appendHTML(Ink.i('bar-top-nav'),'<ul class="menu horizontal black push-right"><li><a>'+name+'</a><ul class="submenu" style="background:#1b99ee;"><li><a onclick="" style="color:white;">Change password</a></li><li><a onclick="menuSignout()" style="color:white;">Sign out</a></li></ul></li></ul>');
+							} else {
+	    						var container = Ink.i('main-screen');
+	    						Ajax.load('login.html', function (res) {
+	    						    InkElement.setHTML(container,res);
+	    						});
+							}
+                          }
+                      }, 
+                      onFailure: function() {
+Ink.log("result: failed on network!");
+                      }
+                  });
+              });
+            });  
+        </script>
+    </head>
+
+    <body>
+
+        <!--[if lte IE 9 ]>
+        <div class="ink-grid">
+            <div class="ink-alert basic" role="alert">
+                <button class="ink-dismiss">&times;</button>
+                <p>
+                    <strong>You are using an outdated Internet Explorer version.</strong>
+                    Please <a href="http://browsehappy.com/">upgrade to a modern browser</a> to improve your web experience.
+                </p>
+            </div>
+        </div>
+        -->
+
+<div id="bar-top">
+    <nav id="bar-top-nav" class="ink-navigation ink-grid">
+       	<ul class="menu horizontal push-left">
+            <li class="heading active"><a onclick="goHome();" class="logoPlaceholder" >CAT</a></li>
+        </ul> 
+    </nav>
+</div>
+<div>&nbsp;</div>
+
+<div id="main-screen" class="ink-grid">
+
+
+</div>
+
+<footer class="bar-bottom">
+<!-- 
+            <ul class="unstyled">
+                <li class="hide-all show-tiny tiny">TINY</li>
+                <li class="hide-all show-small small">SMALL</li>
+                <li class="hide-all show-medium medium">MEDIUM</li>
+                <li class="hide-all show-large large">LARGE</li>
+                <li class="hide-all show-xlarge xlarge">XLARGE</li>
+            </ul>
+-->
+</footer>
+
+            
+    </body>
+
+</html>

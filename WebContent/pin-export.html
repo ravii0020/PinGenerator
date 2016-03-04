@@ -1,0 +1,73 @@
+<h2>Export Pin</h2>
+<div id="pinExportCarousel" class="ink-carousel">
+    <ul class="stage column-group">
+        <li class="slide all-100">
+        <div id="pinExportAlert"></div>
+<form id="formPinExport" class="ink-form">
+<div class="control-group required">
+	<label for="pinDigit">Pin Digit:</label>
+	<div class="control">
+
+	<select id="pinDigit" name="pinDigit" style="width:15em;">
+		<option value="15">15</option>
+		<option value="14">14</option>
+		<option value="13">13</option>
+		<option value="12" selected>12</option>
+		<option value="11">11</option>
+		<option value="10">10</option>
+		<option value="9">9</option>
+		<option value="8">8</option>
+		<option value="7">7</option>
+		<option value="6">6</option>
+		<option value="5">5</option>
+		<option value="4">4</option>
+		<option value="3">3</option>
+		<option value="2">2</option>
+		<option value="1">1</option>
+	</select>
+	</div>
+</div>
+<div class="control-group required">
+	<label for="pinAmount">Pin Amount:</label>
+	<div class="control">
+	    <input id="pinAmount" name="pinAmount" class="ink-fv-required ink-fv-number" style="width:15em;" type="text" placeholder="Pin Amount" maxlength="7" onkeypress='return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 188))' >
+	</div>
+</div>
+	<input id="buttonExport" type="button" value="&nbsp;&nbsp;&nbsp;Export&nbsp;&nbsp;&nbsp;" class="ink-button green" onclick="pinExportButtonExportClick();">
+	<input id="buttonCancel" type="button" value="Cancel" class="ink-button red" onclick="goHome()">
+</form>
+        </li>
+
+        <li class="slide all-100">
+        	<div id="pinExportJobId"></div><br/>
+			<div id="pinExportAction">Preparing..</div> 
+			<br/><br/>
+			<div id="pinExportProgressBar" class="ink-progress-bar" data-start-value="0">
+    			<span id="pinExportProgressBarCaption" class="caption"><i class="fa fa-cog fa-spin"></i>&nbsp;&nbsp;Preparing...</span><div class="bar green"></div>
+			</div>
+			<br/>You can close this page to continue your work<br/>
+			and find your job progress on <a onclick="menuJobList();">Job List</a> later
+			<br/><br/>
+			<div class="push-right"><button class="ink-button" onclick="goHome()">&nbsp;&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button></div><br/>
+			&nbsp;<br/>
+        </li>
+    </ul>
+</div>
+<div class="ink-shade fade">
+    <div id="formPinExportConfirm" class="ink-modal fade" data-trigger="#formPinExportConfirmTrigger" data-width="500px" data-height="400px" role="dialog" aria-hidden="true" aria-labelled-by="modal-title">
+        <div class="modal-header">
+            <!-- <button class="modal-close ink-dismiss"></button>  -->
+            <h2 id="modal-title">Export PIN</h2>
+        </div>
+        <div class="modal-body" id="modalContent">
+            <h3>Please confirm</h3>
+            <div id="pinDigitConfirm"></div>
+            <div id="pinAmountConfirm"></div>
+            Do you really want to export PINs?
+        </div>
+        <div class="modal-footer">
+        	<div class="push-left"><button class="ink-button ink-dismiss green" onclick="pinExportButtonConfirmClick();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
+            <div class="push-right"><button class="ink-button ink-dismiss red">&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</button></div>
+        </div>
+    </div>
+</div>
